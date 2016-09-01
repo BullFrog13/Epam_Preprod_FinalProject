@@ -1,0 +1,185 @@
+﻿@using Courses.Models.WrapModels
+@using Courses.Models.EntityViewModels
+@model CourseSpecializationWrapModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<link href="~/Content/CarouselStartPageStyle.css" type="text/css" rel="stylesheet"/>
+
+<style>
+    .carousel-inner{
+        max-height: 500px !important;
+    }
+</style>
+
+<div id="carousel-example" class="carousel slide" data-ride="carousel" style="margin-top: 10px;">
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example" data-slide-to="1"></li>
+        <li data-target="#carousel-example" data-slide-to="2"></li>
+    </ol>
+
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="carousel-caption">
+                <p style="margin-left: -30%; margin-top: -30%; font-size: 3vw">Go through the best courses with us!</p>
+            </div>
+            <img src="~/Content/Images/5.jpg"/>
+        </div>
+        <div class="item">
+            <img src="~/Content/Images/3.jpg"/>
+            <div class="carousel-caption">
+                <p style="margin-left: -30%; margin-top: -30%; font-size: 3vw">Enjoy lessons with proffesional teachers!</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/Content/Images/4.jpg"/>
+            <div class="carousel-caption">
+                <p style="margin-left: -25%; margin-top: -30%; font-size: 2vw">Dive into your community and find it as one of the best
+                place to gain experience get cutting-edge skills and enjoy white-hot technologies</p>
+            </div>
+        </div>
+    </div>
+
+    <a style="z-index: 1000"class="left carousel-control" href="#carousel-example" data-slide="prev">
+        <span class="glyphicon" style="margin-top: 75%"><img src="~/Content/Images/arrow_left3.png" /></span>
+    </a>
+    <a style="z-index: 1000" class="right carousel-control" href="#carousel-example" data-slide="next">
+        <span class="glyphicon" style="margin-top: 75%"><img src="~/Content/Images/arrow_right3.png" width="60" height="60"/></span>
+    </a>
+</div>
+
+<div class="container">
+    <div class="col-sm-12" style="text-align:center; margin-top: 40px;">
+        <p style="font-size: 2vw;">THE MOST POPULAR COURSES</p>
+    </div>
+    <div class="col-xs-12">
+        <div class="carousel slide" id="myCarousel1">
+            <div class="carousel-inner">
+                @{
+                    int count = 0;
+                    bool start = true; }
+
+                    @{foreach (CourseViewModel course in Model.Courses)
+                        {
+                            if (count % 4 == 0 && start)
+                            {
+                                if (count == 0)
+                                {
+                                    @:<div class="item active">
+                                }
+                                else
+                                {
+                                    @:<div class="item">
+                                }
+                                @:<ul class="thumbnails">
+                                start = false;
+                            }
+                            count++;
+                            <li class="col-sm-3 col-xs-3">
+                                <div class="fff" style="-webkit-box-shadow: 3px 3px 9px -2px rgba(0,0,0,0.97);
+                                                        margin-bottom: 5px">
+                                    <div class="caption" style="text-align: center">
+                                        <h4>@course.Name</h4>
+                                    </div>
+                                    <div class="thumbnail" style="text-align: center; border: none">
+                                        <a href="#"><img src="../../Content/Images/1472586608_Brain-Games-red.png" style="margin: auto" alt=""></a>
+                                    </div>
+                                    <div class="caption">
+                                        <p>@course.StartDate.Day @course.StartDate.ToString("MMMM") @course.StartDate.DayOfWeek</p>
+                                        <a class="btn btn-mini" href="/Home/ReadCourse/@course.Id">» Read More</a>
+                                    </div>
+                                </div>
+                            </li>
+                            if (count % 4 == 0 && !start || count == Model.Courses.Count)
+                            {
+                                @:</ul>
+                                @:</div>
+
+                                start = true;
+                            }
+
+                        }
+                    }
+                </div>
+
+
+                <nav>
+                    <ul class="control-box pager">
+                        <li><a data-slide="prev" href="#myCarousel1" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
+                        <li><a data-slide="next" href="#myCarousel1" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                    </ul>
+                </nav>
+            </div><!-- /.control-box -->
+
+        </div><!-- /#myCarousel -->
+
+    </div><!-- /.col-xs-12 --> 
+    <div class="container">
+    <div class="col-sm-12" style="text-align:center">
+        <p style="font-size: 2vw;">OUR SPECIALIZATIONS</p>
+    </div>
+    <div class="col-xs-12">
+        <div class="carousel slide" id="myCarousel4">
+            <div class="carousel-inner">
+                @{
+                    count = 0;
+                    start = true; }
+
+                @{foreach (SpecializationViewModel spec in Model.Specializations)
+                    {
+                        if (count % 4 == 0 && start)
+                        {
+                            if (count == 0)
+                            {
+                                @:<div class="item active">
+                                }
+                            else
+                            {
+                                @:<div class="item">
+                                }
+                            @:<ul class="thumbnails">
+                                start = false;
+                        }
+                        count++;
+                        <li class="col-sm-3 col-xs-3">
+                            <div class="fff" style="-webkit-box-shadow: 3px 3px 9px -2px rgba(0,0,0,0.97);
+                                                        margin-bottom: 5px">
+                                <div class="caption" style="text-align: center">
+                                    <h4>@spec.Name</h4>
+                                </div>
+                                <div class="thumbnail" style="text-align: center; border: none">
+                                    <a href="#"><img src="../../Content/Images/1472588085_Brain-Games.png" style="margin: auto" alt=""></a>
+                                </div>
+                                <div class="caption">
+                                    <a class="btn btn-mini" href="/Home/ReadSpec/@spec.Id">» Read More</a>
+                                </div>
+                            </div>
+                        </li>
+                        if (count % 4 == 0 && !start || count == Model.Specializations.Count)
+                        {
+                            @:</ul>
+                                @:</div>
+                            start = true;
+                        }
+
+                    }
+                }
+            </div>
+
+            <nav>
+                <ul class="control-box pager">
+                    <li><a data-slide="prev" href="#myCarousel4" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
+                    <li><a data-slide="next" href="#myCarousel4" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                </ul>
+            </nav>
+        </div><!-- /.control-box -->
+
+    </div><!-- /#myCarousel -->
+
+</div><!-- /.col-xs-12 --> 
+        </div>
+ </div>
+
+<script src="~/Scripts/CarouselJS.js"></script>

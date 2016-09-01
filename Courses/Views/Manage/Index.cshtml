@@ -1,0 +1,128 @@
+﻿@model Courses.Models.IndexViewModel
+@using Microsoft.AspNet.Identity
+
+@{
+    ViewBag.Title = "Manage";
+}
+<div class="container">
+    <h1 style="text-align:center">Personal account</h1>
+    <dl class="dl-horizontal">
+        <dt>Your name: </dt>
+        <dd>
+            @User.Identity.Name
+        </dd>
+        <dt>You are:</dt>
+        <dd>
+            @if (User.IsInRole("Admin"))
+            {
+                <p>Administrator</p>
+            }
+            @if(User.IsInRole("Tutor") && User.IsInRole("Student") || User.IsInRole("Tutor"))
+            {
+                <p>Teacher</p>
+            }
+            @if(User.IsInRole("Student") && !User.IsInRole("Tutor"))
+            {
+                <p>Student</p>
+            }
+        </dd>
+        <dt>Profile Picture:</dt>
+        <dd>
+            @if(User.Identity.GetUserName() != null)
+            {
+                var imgUrl = Url.Content("~/Content/Images/profile/" + User.Identity.GetUserName() + ".png") +
+                    "?time-" + DateTime.Now.ToString();
+                <div class="upImage">
+                    <div class="accImg">
+                        <img src="@imgUrl" height="250" width="250" />
+                    </div>
+                    <div class="mngImg">
+                        @using (Html.BeginForm("UploadPhoto", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <div class="btn btn-default browseing">
+                                <input type="file" name="file" id="files" onchange="this.form.submit()" />
+                            </div>
+                        } 
+                    </div>
+                </div>
+            }
+        </dd>
+        <dt>Password:</dt>
+        <dd>
+            [
+            @if (Model.HasPassword)
+            {
+                @Html.ActionLink("Change your password", "ChangePassword")
+            }
+            ]
+        </dd>
+    </dl>
+</div>
+@if (User.IsInRole("Admin"))
+{
+<div class="container">
+    <div class="panel panel-danger" style="margin-bottom: 0">
+        <div class="panel-heading">Administration Panel</div>
+        <div class="panel-body">
+            <a class="btn btn-default col-sm-4" href="Role/CreateRole">Create a new Role</a>
+            <a href="Role/RolesList" class="btn btn-default col-sm-4">Watch Roles</a>
+            <a href="Role/ManageUserRoles" class="btn btn-default col-sm-4">Manage Roles</a>
+        </div>
+    </div>
+    <div class="col-sm-6 well">
+        <h3 style="margin-top: 0; text-align: center">Block user</h3>
+        @using (Html.BeginForm("BanUser", "Admin", FormMethod.Post, new { @class = "col-lg-offset-3" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <input type="text" class="form-control" name="UserName" style="max-width: 320px; text-align: center" placeholder="User name"/>
+            <input type="submit" value="Ban user" class="btn btn-danger col-sm-12" style="max-width: 320px; margin-top: 5px"/>
+        }
+    </div>
+    <div class="col-sm-6 well">
+        <h3 style="margin-top: 0; text-align: center">Unblock user</h3>
+        @using (Html.BeginForm("UnBanUser", "Admin", FormMethod.Post, new { @class = "col-lg-offset-3"}))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <input type="text" class="form-control" name="UserName" style="max-width: 320px; text-align: center" placeholder="User name"/>
+            <input type="submit" value="Unban user" class="btn btn-info col-sm-12" style="max-width: 320px; margin-top: 5px"/>
+        }
+    </div>
+</div>
+}
+@if (User.IsInRole("Student") && !User.IsInRole("Tutor"))
+{
+        <div class="col-md-10 col-lg-offset-3" style="margin-top: 20px;">
+            <div class="panel panel-default panel-table">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col col-xs-6">
+                            <h1 class="panel-title">Courses that you are subscribed for (click item to learn more)</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    @Html.Partial("_UserCoursesPartialTableView", Model.Courses)
+                </div>
+            </div>
+        </div>
+}
+
+@if (User.IsInRole("Student") && User.IsInRole("Tutor") || User.IsInRole("Tutor"))
+{
+    <div class="col-md-10 col-lg-offset-3" style="margin-top: 20px;">
+        <div class="panel panel-default panel-table">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col col-xs-6">
+                        <h1 class="panel-title">Courses that you guide (click item to learn more)</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                @Html.Partial("_UserCoursesPartialTableView", Model.Courses)
+            </div>
+        </div>
+    </div>
+}

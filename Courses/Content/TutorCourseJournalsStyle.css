@@ -1,0 +1,18 @@
+﻿.panel {
+        max-width: 1000px;
+}
+.panel-table .panel-body {
+        padding: 0;
+}
+.panel-table .panel-body .table-bordered {
+            border-style: none;
+            margin: 0;
+}
+.panel-table .panel-body .table-bordered > thead > tr > th:last-of-type {
+                text-align: center;
+}
+th, td{
+        text-align:center;
+        vertical-align: bottom;
+
+}

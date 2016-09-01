@@ -1,0 +1,9 @@
+2016-08-31 02:48:06.7982 INFO Home controller init
+2016-08-31 02:48:06.8678 DEBUG Debug: Where are you going and why?
+2016-08-31 02:48:06.8678 INFO Info: What bus station you're at.
+2016-08-31 02:48:06.8768 WARN Warn: You're playing on the phone and not looking up for your bus
+2016-08-31 02:48:06.8768 ERROR Error: You get on the wrong bus.
+2016-08-31 02:48:06.8768 FATAL Fatal: You are run over by the bus.
+2016-08-31 02:48:11.6417 INFO Home controller init
+2016-08-31 02:49:31.2169 INFO Home controller init
+2016-08-31 02:51:01.1145 INFO Admin class

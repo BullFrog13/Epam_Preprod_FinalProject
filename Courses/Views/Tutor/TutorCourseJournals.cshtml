@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Courses.Models.TutorModels.JournalWrapModel>
+
+@{
+    ViewBag.Title = "TutorCourseJournals";
+}
+
+<div class="col-md-10 col-lg-offset-3" style="margin-top: 20px;">
+    <div class="panel panel-default panel-table">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col col-xs-6">
+                    <h1 class="panel-title">Put mark (click box to do it)</h1>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            @Html.Partial("TutorCourseJournalPartialTable", Model)
+        </div>
+    </div>
+</div>
+
+<script src="https://use.fontawesome.com/6da3e92144.js"></script>
+<script src="~/Scripts/SortTable.js"></script>

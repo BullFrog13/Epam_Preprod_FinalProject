@@ -1,0 +1,30 @@
+﻿@model Courses.Models.AdminModels.Specialization.EditSpecializationViewModel
+
+@{
+    ViewBag.Title = "EditSpecialization";
+}
+<link href="~/Content/FormStyle.css" rel="stylesheet" />
+<style>
+    body {
+        background-image: url("../../Content/Images/pencils-1280558_1920.jpg");
+    }
+    textarea{
+        resize: none;
+    }
+</style>
+<div class="container">
+    <div class="col-lg-offset-4 col-sm-offset-3" id="wrapDiv">
+        <h1 id="title">Edit specialization</h1>
+        <div id="logbox">
+            <form id="signup" method="post" action="/Admin/EditSpecialization">
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.Id)
+                @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+                @Html.EditorFor(model => model.Name, new {htmlAttributes = new {@class = "input pass"}})
+                @Html.EditorFor(model => model.Description, new {htmlAttributes = new {@class = "input pass"}})
+                <input type="submit" value="Save" class="inputButton"/>
+            </form>
+        </div>
+        <a id="link" style="margin-left: 30px" class="btn btn-primary" href="/Home/Specializations" >Back to specializations</a>
+    </div>
+</div>

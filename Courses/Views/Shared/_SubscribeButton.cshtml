@@ -1,0 +1,16 @@
+﻿@using Courses.Models.EntityViewModels
+@model CourseViewModel
+
+<div id="button">
+    @if (Model.Subscribed == false)
+    {
+        <a data-ajax="true" data-ajax-confirm="Subscribe for course @Model.Name?" data-ajax-mode="update"
+           data-ajax-update="#button" data-ajax-loading="#please-wait" href="/User/SubscribeForACourse?courseId=@Model.Id" class="btn btn-success">Subscribe</a>
+    }
+    @if (Model.Subscribed)
+    {
+        <a data-ajax="true" data-ajax-confirm="Unsubscribe from course @Model.Name?" data-ajax-mode="update"
+           data-ajax-update="#button" data-ajax-loading="#please-wait" href="/User/UnSubscribeFromCourse?courseId=@Model.Id" class="btn btn-danger">Unsubscribe</a>
+    }
+    <div id="please-wait" style="display: none">Wait...</div>
+</div>

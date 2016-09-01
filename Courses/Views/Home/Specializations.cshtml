@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Courses.Models.EntityViewModels.SpecializationViewModel>
+
+<style>
+    body {
+        background-image: url("../../Content/Images/pencils-1280558_1920.jpg");
+    }
+</style>
+
+<div class="col-sm-10 col-md-offset-1 col-lg-offset-3 col-lg-9" style="margin-top: 20px;">
+
+    <div class="panel panel-default panel-table">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col col-xs-6">
+                    <h1 class="panel-title">Specializations (Click item to see courses)</h1>
+                </div>
+                @if (User.IsInRole("Admin"))
+                {
+                    <div class="col col-xs-6 text-right">
+                        <a class="btn btn-sm btn-primary btn-create" href="/Admin/CreateSpecialization">Create new</a>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="panel-body">
+            @Html.Partial("_SpecializationTablePartialDisplay", Model)
+        </div>
+    </div>
+    <a href="/Home/Index" class="btn btn-primary">Home</a>
+</div>

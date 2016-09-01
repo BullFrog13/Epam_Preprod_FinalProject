@@ -1,0 +1,49 @@
+﻿@model Courses.Models.AdminModels.Course.CreateCourseViewModel
+
+@{
+    ViewBag.Title = "CreateCourse";
+}
+<link href="~/Content/FormStyle.css" rel="stylesheet" />
+<style>
+    body {
+        background-image: url("../../Content/Images/pencils-1280558_1920.jpg");
+    }
+
+    textarea {
+        resize: none;
+    }
+</style>
+<div class="container">
+    <div id="wrapDiv" class="ccol-lg-offset-5 col-sm-offset-3">
+        <h1 id="title" style="margin-top: -15%">Create Course</h1>
+        <div id="logbox" style="text-align: center">
+            <form id="signup" method="post" action="/Admin/CreateCourse">
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <input name="Name" placeholder="Enter course name" class="input pass" />
+                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                <input name="StartDate"type="date" placeholder="Select start date" class="input pass" />
+                @Html.ValidationMessageFor(m => m.StartDate, "", new { @class = "text-danger" })
+                <input name="EndDate" type="date" placeholder="Select end date" class="input pass" />
+                @Html.ValidationMessageFor(m => m.EndDate, "", new { @class = "text-danger" })
+                <select class="input pass" name="tutorId">
+                    @foreach(var item in ViewBag.tutors)
+                    {
+                        <option value="@item.Id">@item.UserName</option>
+                    }
+                </select>
+                <input name="Description" placeholder="Enter short description" class="input pass" />
+                @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+                <select class="input pass" name="SpecializationId">
+                    @foreach (var item in ViewBag.Specializations)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+                <input type="submit" value="Create" class="inputButton" />
+            </form>
+        </div>
+        <a class="btn btn-primary"
+           href="/Home/Courses" id="link" style="margin-left: 0px;">Back to courses</a>
+    </div>
+</div>

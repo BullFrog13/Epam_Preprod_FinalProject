@@ -1,0 +1,21 @@
+﻿@model  Courses.Models.EntityViewModels.SpecializationViewModel
+<style>
+    body {
+        background-image: url("../../Content/Images/pencils-1280558_1920.jpg");
+    }
+</style>
+<div class="col-md-10 col-lg-offset-3" style="margin-top: 20px;">
+    <div class="panel panel-default panel-table">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col col-xs-10">
+                    <h1 class="panel-title">Courses attached to specialization @Model.Name (Click item to learn more)</h1>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            @Html.Partial("_ListTable", Model.Courses)
+        </div>
+    </div>
+    <a href="/Home/Specializations" class="btn btn-primary">Back to Specializations</a>
+</div>

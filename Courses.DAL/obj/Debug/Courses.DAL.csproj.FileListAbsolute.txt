@@ -1,0 +1,13 @@
+D:\EPAM_ASP.NET_MVC_5\Courses_Project\Courses\Courses.DAL\bin\Debug\Courses.DAL.dll.config
+D:\EPAM_ASP.NET_MVC_5\Courses_Project\Courses\Courses.DAL\bin\Debug\Courses.DAL.dll
+D:\EPAM_ASP.NET_MVC_5\Courses_Project\Courses\Courses.DAL\bin\Debug\Courses.DAL.pdb
+D:\EPAM_ASP.NET_MVC_5\Courses_Project\Courses\Courses.DAL\bin\Debug\EntityFramework.dll
+D:\EPAM_ASP.NET_MVC_5\Courses_Project\Courses\Courses.DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\EPAM_ASP.NET_MVC_5\Courses_Project\Courses\Courses.DAL\bin\Debug\EntityFramework.xml
+D:\EPAM_ASP.NET_MVC_5\Courses_Project\Courses\Courses.DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\EPAM_ASP.NET_MVC_5\Courses_Project\Courses\Courses.DAL\obj\Debug\Courses.DAL.csprojResolveAssemblyReference.cache
+D:\EPAM_ASP.NET_MVC_5\Courses_Project\Courses\Courses.DAL\obj\Debug\Courses.DAL.dll
+D:\EPAM_ASP.NET_MVC_5\Courses_Project\Courses\Courses.DAL\obj\Debug\Courses.DAL.pdb
+D:\EPAM_ASP.NET_MVC_5\Courses_Project\Courses\Courses.DAL\bin\Debug\NLog.dll
+D:\EPAM_ASP.NET_MVC_5\Courses_Project\Courses\Courses.DAL\bin\Debug\NLog.xml
+D:\EPAM_ASP.NET_MVC_5\Courses_Project\Courses\Courses.DAL\bin\Debug\NLog.config

@@ -1,0 +1,111 @@
+﻿@model IEnumerable<Courses.Models.StudentModels.CourseMarkStudentViewModel>
+<link href="~/Content/TableDisplayStyle.css" rel="stylesheet" />
+<style>
+    tr.clickable-row td:nth-child(-n+5) {
+        cursor: pointer;
+    }
+    tr.clickable-row td:nth-child(-n+5){
+        cursor: pointer;
+    }
+</style>
+<table class="table table-striped table-bordered table-list" id="table">
+    <thead>
+        <tr>
+            <th>
+                Name <em class="fa fa-sort"></em>
+            </th>
+            <th>
+                Start Date <em class="fa fa-sort"></em>
+            </th>
+            <th>
+                End Date <em class="fa fa-sort"></em>
+            </th>
+            <th>
+                Subscribers <em class="fa fa-sort"></em>
+            </th>
+            <th>
+                Specialization <em class="fa fa-sort"></em>
+            </th>
+            <th>
+                Status <em class="fa fa-sort"></em>
+            </th>
+            @if (User.IsInRole("Student") && User.IsInRole("Tutor") || User.IsInRole("Tutor"))
+            {
+                <th>
+
+                </th>
+            }
+            @if (User.IsInRole("Student") && !User.IsInRole("Tutor"))
+            {
+                <th>
+                    Mark
+                </th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="clickable-row">
+                @Html.HiddenFor(modelItem => item.Course.TutorId)
+                <td onclick="window.document.location = '/Home/ReadCourse/@item.Course.Id'">
+                    @Html.DisplayFor(modelItem => item.Course.Name)
+                </td>
+                <td onclick="window.document.location = '/Home/ReadCourse/@item.Course.Id'">
+                    @Html.DisplayFor(modelItem => item.Course.StartDate)
+                </td>
+                <td onclick="window.document.location = '/Home/ReadCourse/@item.Course.Id'">
+                    @Html.DisplayFor(modelItem => item.Course.EndDate)
+                </td>
+                <td onclick="window.document.location = '/Home/ReadCourse/@item.Course.Id'">
+                    @Html.DisplayFor(modelItem => item.Course.Subscribers)
+                </td>
+                <td onclick="window.document.location = '/Home/ReadCourse/@item.Course.Id'">
+                    @Html.DisplayFor(modelItem => item.Course.Specialization.Name)
+                </td>
+                <td>
+                    @{if (DateTime.Compare(DateTime.Now, item.Course.EndDate) >= 0)
+                        {
+                            <p style="color: red">Finished</p>
+                        }
+                        else if (DateTime.Compare(DateTime.Now, item.Course.EndDate) < 0 && DateTime.Compare(DateTime.Now, item.Course.StartDate) >= 0)
+                        {
+                            <p style="color: green">In progress</p>
+                        }
+                        else
+                        {
+                            <p style="color: blue">Incoming</p>
+                        }
+                    }
+                </td>
+                @if (User.IsInRole("Student") && User.IsInRole("Tutor") || User.IsInRole("Tutor"))
+                {
+                    <td>
+                        @{
+                            if (DateTime.Compare(DateTime.Now, item.Course.EndDate) >= 0)
+                            {
+                                <a class="btn btn-default" href="/Tutor/TutorCourseJournals/@item.Course.Id">Put marks</a>
+                            }
+                            else
+                            {
+                                <a disabled class="btn btn-default">Put marks</a>
+                            }
+                        }
+                    </td>
+                }
+                @if (User.IsInRole("Student") && !User.IsInRole("Tutor"))
+                {
+                    <th>
+                        @Html.DisplayFor(modelItem => item.Mark)
+                    </th>
+                }
+            </tr>
+        }
+  
+    </tbody>
+</table>
+
+@Scripts.Render("~/scripts/jquery-1.10.2.js")
+@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.js")
+<script src="https://use.fontawesome.com/6da3e92144.js"></script>
+<script src="~/Scripts/SortTable.js"></script>

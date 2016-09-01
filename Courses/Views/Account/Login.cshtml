@@ -1,0 +1,31 @@
+﻿@using Courses.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+<link href="~/Content/FormStyle.css" rel="stylesheet"/>
+
+<div class="container">
+    <div class="col-sm-6 col-sm-offset-3 col-lg-offset-3" style="text-align: center">
+        <div id="logbox">
+            <form id="signup" method="post" action="/Account/Login">
+                @Html.AntiForgeryToken()
+                <h1>Enter your account</h1>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.UserName, "", new { @class = "input pass", @placeholder = "User name" })                
+                @Html.TextBoxFor(m => m.Password, "", new { @class = "input pass", @placeholder = "Password", @type="password" })
+                <input name="RememberMe" id="RememberMe" type="checkbox" value="false"/>
+                <label for="RememberMe">Remember</label>
+                <input type="submit" value="Log in" class="inputButton" />
+            </form>
+        </div>
+        <a href="/Account/Register" class="btn btn-primary" id="link" style="margin-left: 0px;">Register as a new user</a>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

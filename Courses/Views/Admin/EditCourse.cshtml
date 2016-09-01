@@ -1,0 +1,33 @@
+﻿@model Courses.Models.AdminModels.Course.EditCourseViewModel
+
+@{
+    ViewBag.Title = "EditCourse";
+}
+<link href="~/Content/FormStyle.css" rel="stylesheet" />
+<style>
+    body {
+        background-image: url("../../Content/Images/pencils-1280558_1920.jpg");
+    }
+
+    textarea {
+        resize: none;
+    }
+</style>
+<div class="container">
+    <div id="wrapDiv" class="col-lg-offset-4 col-sm-offset-3">
+        <h1 id="title">Edit course</h1>
+        <div id="logbox">
+            <form id="signup" method="post" action="/Admin/EditCourse">
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.Id)
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "input pass" } })
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "input pass" } })
+                <input type="submit" value="Save" class="inputButton" />
+            </form>
+        </div>
+        <a class="btn btn-primary" href="/Home/Courses" id="link" 
+           style="margin-left: 0">Back to courses</a>
+    </div>
+</div>
+

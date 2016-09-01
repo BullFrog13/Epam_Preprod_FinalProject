@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Courses.Models.ApplicationUser>
+
+
+<link href="~/Content/TableDisplayStyle.css" rel="stylesheet" />
+<style>
+    #r{
+        width: 200px;
+    }
+</style>
+<table class="table table-striped table-bordered table-list" id="table">
+    <thead>
+        <tr>
+            <th id="r">
+                Name <em class="fa fa-sort"></em>
+            </th>
+            <th>
+                Email <em class="fa fa-sort"></em>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="clickable-row">
+                <td onclick="window.document.location = 'TeacherCourses/@item.Id'">
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td onclick="window.document.location = 'TeacherCourses/@item.Id'">
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Scripts.Render("~/scripts/jquery-1.10.2.js")
+@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.js")
+<script src="https://use.fontawesome.com/6da3e92144.js"></script>
+<script src="~/Scripts/SortTable.js"></script>

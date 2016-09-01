@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="col-md-10 col-lg-offset-3" style="margin-top: 20px;">
+    <div class="panel panel-default panel-table">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col col-xs-6">
+                    <h1 class="panel-title">Courses (click item to learn more)</h1>
+                </div>
+                <div class="col col-xs-6 text-right">
+                    <a class="btn btn-sm btn-primary btn-create" href="/Role/CreateRole">Create new</a>
+                    <a class="btn btn-sm btn-primary btn-create" href="/Role/ManageUserRoles">Manage</a>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            @Html.Partial("_RoleTable", Model)
+        </div>
+    </div>
+</div>
+

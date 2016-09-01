@@ -1,0 +1,64 @@
+2016-08-31 00:49:41.4893 INFO Home controller init
+2016-08-31 00:49:41.5530 DEBUG Debug: Where are you going and why?
+2016-08-31 00:49:41.5530 INFO Info: What bus station you're at.
+2016-08-31 00:49:41.5530 WARN Warn: You're playing on the phone and not looking up for your bus
+2016-08-31 00:49:41.5530 ERROR Error: You get on the wrong bus.
+2016-08-31 00:49:41.5645 FATAL Fatal: You are run over by the bus.
+2016-08-31 00:50:06.5164 INFO Home controller init
+2016-08-31 00:50:06.5524 DEBUG Debug: Where are you going and why?
+2016-08-31 00:50:06.5524 INFO Info: What bus station you're at.
+2016-08-31 00:50:06.5524 WARN Warn: You're playing on the phone and not looking up for your bus
+2016-08-31 00:50:06.5524 ERROR Error: You get on the wrong bus.
+2016-08-31 00:50:06.5524 FATAL Fatal: You are run over by the bus.
+2016-08-31 02:40:44.0983 INFO Home controller init
+2016-08-31 02:40:44.1716 DEBUG Debug: Where are you going and why?
+2016-08-31 02:40:44.1736 INFO Info: What bus station you're at.
+2016-08-31 02:40:44.1736 WARN Warn: You're playing on the phone and not looking up for your bus
+2016-08-31 02:40:44.1736 ERROR Error: You get on the wrong bus.
+2016-08-31 02:40:44.1736 FATAL Fatal: You are run over by the bus.
+2016-08-31 02:44:30.2384 INFO Home controller init
+2016-08-31 02:44:30.2935 DEBUG Debug: Where are you going and why?
+2016-08-31 02:44:30.2935 INFO Info: What bus station you're at.
+2016-08-31 02:44:30.2990 WARN Warn: You're playing on the phone and not looking up for your bus
+2016-08-31 02:44:30.2990 ERROR Error: You get on the wrong bus.
+2016-08-31 02:44:30.2990 FATAL Fatal: You are run over by the bus.
+2016-08-31 02:44:42.8794 INFO Home controller init
+2016-08-31 02:44:44.6827 INFO Admin class
+2016-08-31 02:45:42.4725 INFO Home controller init
+2016-08-31 02:45:42.5346 DEBUG Debug: Where are you going and why?
+2016-08-31 02:45:42.5346 INFO Info: What bus station you're at.
+2016-08-31 02:45:42.5346 WARN Warn: You're playing on the phone and not looking up for your bus
+2016-08-31 02:45:42.5346 ERROR Error: You get on the wrong bus.
+2016-08-31 02:45:42.5346 FATAL Fatal: You are run over by the bus.
+2016-08-31 02:45:47.3073 INFO Home controller init
+2016-08-31 02:45:48.6045 INFO Admin class
+2016-08-31 02:46:54.5820 INFO Home controller init
+2016-08-31 02:46:54.6560 DEBUG Debug: Where are you going and why?
+2016-08-31 02:46:54.6591 INFO Info: What bus station you're at.
+2016-08-31 02:46:54.6591 WARN Warn: You're playing on the phone and not looking up for your bus
+2016-08-31 02:46:54.6591 ERROR Error: You get on the wrong bus.
+2016-08-31 02:46:54.6591 FATAL Fatal: You are run over by the bus.
+2016-08-31 02:47:18.1801 INFO Home controller init
+2016-08-31 02:47:33.6212 INFO Admin class
+2016-08-31 02:48:06.7982 INFO Home controller init
+2016-08-31 02:48:06.8678 DEBUG Debug: Where are you going and why?
+2016-08-31 02:48:06.8678 INFO Info: What bus station you're at.
+2016-08-31 02:48:06.8768 WARN Warn: You're playing on the phone and not looking up for your bus
+2016-08-31 02:48:06.8768 ERROR Error: You get on the wrong bus.
+2016-08-31 02:48:06.8768 FATAL Fatal: You are run over by the bus.
+2016-08-31 02:48:11.6417 INFO Home controller init
+2016-08-31 02:49:31.2169 INFO Home controller init
+2016-08-31 02:50:51.5208 INFO Home controller init
+2016-08-31 02:50:51.5208 INFO Home controller init
+2016-08-31 02:50:51.5899 DEBUG Debug: Where are you going and why?
+2016-08-31 02:50:51.5899 INFO Info: What bus station you're at.
+2016-08-31 02:50:51.5899 WARN Warn: You're playing on the phone and not looking up for your bus
+2016-08-31 02:50:51.5979 ERROR Error: You get on the wrong bus.
+2016-08-31 02:50:51.5979 FATAL Fatal: You are run over by the bus.
+2016-08-31 02:50:59.5166 INFO Home controller init
+2016-08-31 02:51:01.1145 INFO Admin class
+2016-08-31 03:53:02.3922 INFO Home controller init
+2016-08-31 03:53:03.2309 INFO /Home/Index/ request
+2016-08-31 04:14:23.1804 INFO Home controller init
+2016-08-31 04:14:23.5707 DEBUG Get course with id47
+2016-08-31 14:27:09.6947 DEBUG Get course with id47

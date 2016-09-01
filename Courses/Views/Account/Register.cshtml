@@ -1,0 +1,23 @@
+﻿@model Courses.Models.RegisterViewModel
+
+<link href="~/Content/FormStyle.css" rel="stylesheet" />
+<div class="container">
+    <div class="col-md-6">
+        <div id="logbox">
+            <form id="signup" method="post" action="/Account/Register">
+                @Html.AntiForgeryToken()
+                <h1>Enter your account</h1>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.Email, "", new {@class="input pass", @placeholder="Enter your email" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.UserName, "", new { @class = "input pass", @placeholder = "Enter your user name" })
+                @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.Password, "", new { @class = "input pass", @placeholder = "Enter your password", @type="password"})                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.ConfirmPassword, "", new { @class = "input pass", @placeholder = "Reenter a password", @type="password" })                <input type="submit" value="Register" class="inputButton" />
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,36 @@
+﻿    .panel {
+        max-width: 1000px;
+        min-width: 900px;
+    }
+    .panel-table .panel-body {
+        padding: 0;
+    }
+
+        .panel-table .panel-body .table-bordered {
+            border-style: none;
+            margin: 0;
+        }
+
+            .panel-table .panel-body .table-bordered > thead > tr > th:last-of-type {
+                text-align: center;
+                width: 200px;
+            }
+
+    .trash{
+        height: 30px;
+        width: 30px;
+        background: url("/Content/Images/1472224478_trash.png") no-repeat top center;
+        text-indent: -9999px;
+        margin-top: -5px;
+    }
+    th{
+        text-align:center;
+        vertical-align: bottom;
+    }
+        tr.clickable-row td:nth-child(-n+2) {
+        cursor: pointer;
+    }
+
+    tr.clickable-row :hover {
+        color: cornflowerblue;
+    }
